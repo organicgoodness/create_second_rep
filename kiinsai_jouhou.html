@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta htp-equiv="Content-Type" content="text/html"; charset="utf-8">
+    <title>色の変わり方を見てみよう</title>
+    <link rel="stylesheet" href="RGB.css">
+    
+    <script type="text/javascript">
+
+      function setColor1(btn,targetR){
+	  var count = 1;
+	  property = document.getElementById(btn);
+	  targetRout = document.getElementById(targetR);
+
+	  if(count == 0){
+	      count = 1;
+	  }
+
+	  else{
+	      if(targetR == "inputTextR" || targetR == "R"){
+		  property.style.backgroundColor = "rgb(" + targetRout.value + ",0,0)";
+		  targetRoutI = document.getElementById("inputTextR");
+		  targetRoutR = document.getElementById("R");
+		  targetRoutI.value = targetRout.value;
+		  targetRoutR.value = targetRout.value;
+	      }
+
+	      else if(targetR == "inputTextG" || targetR == "G"){
+		  property.style.backgroundColor = "rgb(0," + targetRout.value + ",0)";
+		  targetRoutI = document.getElementById("inputTextG");
+		  targetRoutR = document.getElementById("G");
+		  targetRoutI.value = targetRout.value;
+		  targetRoutR.value = targetRout.value;
+	      }
+
+	      else if(targetR == "inputTextB" || targetR == "B"){
+		  property.style.backgroundColor = "rgb(0,0," + targetRout.value + ")";
+		  targetRoutI = document.getElementById("inputTextB");
+		  targetRoutR = document.getElementById("B");
+		  targetRoutI.value = targetRout.value;
+		  targetRoutR.value = targetRout.value;
+	      }
+
+	      else if(targetR == "inputTextC" || targetR == "C"){
+		  property.style.backgroundColor = "rgb(" + Math.round(255*(1-targetRout.value/1000)) + ",255,255)";
+		  targetRoutI = document.getElementById("inputTextC");
+		  targetRoutR = document.getElementById("C");
+		  targetRoutI.value = targetRout.value;
+		  targetRoutR.value = targetRout.value;
+	      }
+
+	      else if(targetR == "inputTextM" || targetR == "M"){
+		  property.style.backgroundColor = "rgb(255," + Math.round(255*(1-targetRout.value/1000)) + ",255)";
+		  targetRoutI = document.getElementById("inputTextM");
+		  targetRoutR = document.getElementById("M");
+		  targetRoutI.value = targetRout.value;
+		  targetRoutR.value = targetRout.value;
+	      }
+
+	      else if(targetR == "inputTextY" || targetR == "Y"){
+		  property.style.backgroundColor = "rgb(255,255," + Math.round(255*(1-targetRout.value/1000)) + ")";
+		  targetRoutI = document.getElementById("inputTextY");
+		  targetRoutR = document.getElementById("Y");
+		  targetRoutI.value = targetRout.value;
+		  targetRoutR.value = targetRout.value;
+	      }
+	  }	  
+      }
+      
+      function setColor(btn,targetR,targetG,targetB){
+	  var count = 1;
+	  var property = document.getElementById(btn);
+	  
+	  targetRout = document.getElementById(targetR);
+	  targetGout = document.getElementById(targetG);
+	  targetBout = document.getElementById(targetB);
+	  
+	  if(count == 0){
+	      property.style.backgroundColor = "rgb(100,0,0)"
+	      count = 1;
+	  }
+
+	  else{
+	      if((targetR == "inputTextR" || targetR == "R") && (targetG == "inputTextG" || targetG == "G") && (targetB == "inputTextB" || targetB == "B")){
+		  property.style.backgroundColor = "rgb(" + targetRout.value + "," + targetGout.value + "," + targetBout.value + ")"
+	      }
+	      count = 0;
+	  }
+      }   
+      
+      function setColorCMY(btn,targetC,targetM,targetY){
+	  var count = 1;
+	  var property = document.getElementById(btn);
+
+	  targetCout = document.getElementById(targetC);
+	  targetMout = document.getElementById(targetM);
+	  targetYout = document.getElementById(targetY);
+
+	  if(count == 0){
+	      property.style.backgroundColot = "(98,23,54)"
+	      count = 1;
+	  }
+	  
+	  else{
+	      property.style.backgroundColor = "rgb(" + Math.round(255*(1-targetCout.value/1000)) + "," + Math.round(255*(1-targetMout.value/1000)) + "," + Math.round(255*(1-targetYout.value/1000)) + ")"
+	     /* }*/
+	      count = 0;
+	  }
+      }
+      
+    </script>
+  </head>
+  
+  <body id="page">
+    <div class="suraido">
+      <img class="s5" src="hikarienogu5.png" alt="s5写真">
+      <img class="s2" src="hikarienogu2.png" alt="s2写真">
+      <img class="s8" src="hikarienogu8.png" alt="s8写真">
+    </div>
+    <div class="RGBForm">
+      <div class="RGB1">
+	<font size="5" color="#b54960" face="ヒラギノ角ゴシック">光(RGB)</font>
+	<div class="RGBR">
+	  <font size="5" color="#dd1515">R</font>
+	  <input type="number" id="inputTextR" value="0" min="0" max="255" onclick="setColor1('changeR','inputTextR')">
+	  <br>
+	  0 <input type="range" id="R" value="0" min="0" max="255" onclick="setColor1('changeR','R')"> 255
+	  <!--<input type="range" class="input-range" value="100" min="0" max="200" data-unit="%">-->
+	  <br>
+	  <!--
+	      <img class="r1image" src="Pasted_GraphicR.pdf" alt="r1写真">
+	      <img class="r1image2" src="Pasted_GraphicR.pdf" alt="r1写真2">
+	      -->
+	      
+	  <div class="boxR" id="changeR"></div>
+	</div>
+	<!--<div id="output_messageR"></div-->
+	  
+
+	<div class="RGBG">
+	  <font size="5" color="#008800">G</font>
+	  <input type="number" id="inputTextG" value="0" min="0" max="255" onclick="setColor1('changeG','inputTextG')">
+	  <br>
+	  0 <input type="range" id="G" value="0" min="0" max="255" onclick="setColor1('changeG','G')"> 255
+	  <br>
+	  <div class="boxG" id="changeG"></div>
+	</div>
+	
+	<div class="RGBB">
+	  <font size="5" color="#000099">B</font>
+	  <input type="number" id="inputTextB" value="0" min="0" max="255" onclick="setColor1('changeB','inputTextB')">
+	  <br>
+	  0 <input type="range" id="B" value="0" min="0" max="255" onclick="setColor1('changeB','B')"> 255
+	  <br>
+	  <div class="boxB" id="changeB"></div>
+	</div>
+	<!--<img class="b1image" src="Pasted_GraphicB.pdf" alt="b1写真">-->
+	<!--
+	    <div class="RGB2">
+	      <div class="boxB" id="changeB">b</div>
+	    </div>-->
+ 
+	<div>
+	  
+	  <input type="button" value="RGB" onclick="setColor('changeRGB','R','G','B')">
+	</div>
+	<div class="boxRGB" id="changeRGB">RGB</div>
+	
+	</div>
+
+    <div class="CMYForm">
+      <div class="CMY1">
+	<font size="5" color="#5e5e5e" face="ヒラギノ角ゴシック">絵の具(CMY)</font>
+	<div class="CMYC">
+	  <font size="5" color="#00cccc">C</font>
+	  <input type="number" id="inputTextC" value="0" min="0" max="1000" onclick="setColorCMY('changeC','inputTextC')">
+	  <br>
+	  0 <input type="range" id="C" value="0" min="0" max="1000" onclick="setColor1('changeC','C')"> 1000
+	  <!--
+	      <img class="c1image" src="Pasted_GraphicC.pdf" alt="c1写真">
+	      <img class="c2image" src="Pasted_GraphicC.pdf" alt="c2写真">
+	      -->
+	      <div class="boxC" id="changeC"></div>
+	</div>
+
+	<div class="CMYM">
+	  <font size="5" color="#ff00ff">M</font>
+	  <input type="number" id="inputTextM" value="0" min="0" max="1000" onclick="setColorCMY('changeM','inputTextM')">
+	  <br>
+	  0 <input type="range" id="M" value="0" min="0" max="1000" onclick="setColor1('changeM','M')"> 1000
+	  <!--
+	      <img class="m1image" src="Pasted_GraphicM.pdf" alt="m1写真">
+	      <img class="m2image" src="Pasted_GraphicM.pdf" alt="m2写真">
+	      -->
+	  <div class="boxM" id="changeM"></div>
+	</div>
+
+	<div class="CMYY">
+	  <font size="5" color="#cc9900">Y</font>
+	  <input type="number" id="inputTextY" value="0" min="0" max="1000" onclick="setColorCMY('changeY','inputTextY')">
+	  <br>
+	  0 <input type="range" id="Y" value="0" min="0" max="1000" onclick="setColor1('changeY','Y')"> 1000
+	<!--
+	    <img class="y1image" src="Pasted_GraphicY.pdf" alt="y1写真">
+	    <img class="y2image" src="Pasted_GraphicY.pdf" alt="y2写真">
+	    -->
+	  <div class="boxY" id="changeY"></div>
+	</div>
+	  
+	<div>
+	  <input type="button" value="CMY" onclick="setColorCMY('changeCMY','C','M','Y')">
+	</div>
+	<div class="boxCMY" id="changeCMY"></div>
+	</div>
+    </div>
+    <div class="suraido2">
+      <img class="s3" src="hikarienogu3.png" alt="s3写真"><br>
+      <div class="suraido">
+	<img class="s1" src="hikarienogu1sou.png" alt="s1写真">
+      </div>
+    </div>
+      </div>
+      <div class="suraido3">
+	<div class="suraido">
+	  <img class="s4" src="hikarienogu4.png" alt="s4写真"><br>
+	  <img class="s6" src="hikarienogu6.png" alt="s6写真">
+	</div>
+	<div>
+	  <img class="s7" src="hikarienogu7.png" alt="s7写真">
+	</div>
+      </div>
+      
+      <!--
+	  <datalist id="R" onclick="setColor('R','output_messageR')">
+	    <option value="0" label="0"></option>
+	    <option value="255" label="255"></option>
+	  </datalist>
+	  -->
+	  <!--
+	  <script language="javascript" type="text/javascript">
+	    
+	function func1(textRGB){
+	    var input_TextRGB = document.getElementById(textRGB).value;
+	    return input_TextRGB;
+	}
+
+	function func2(textRGB,outputRGB){
+	    var input_TextRGB = document.getElementById(textRGB).value;
+	    var input_message = "入力された内容は「" + input_TextRGB + "」です。"
+	    document.getElementById(outputRGB).innerHTML = input_message;
+	}
+	
+	function funcRGB(textR,textG,textB,outputRGB){
+	    var input_TextR = document.getElementById(textR).value;
+	    var input_TextG = document.getElementById(textG).value;
+	    var input_TextB = document.getElementById(textB).value;
+	    
+	    var input_message = "入力された内容はrgb(" + Math.round(255*(1-input_TextR/1000)) + "," + input_TextG + "," + input_TextB + ")です。"
+	    
+	    document.getElementById(outputRGB).innerHTML = input_message;
+	}
+      </script>
+-->
+    </div>
+  </body>
+</html>
